@@ -33,7 +33,9 @@ alias nv="nvim ."
 alias v="vercel"
 alias vd="vercel dev"
 
-alias lvim="~/.local/bin/lvim"
+alias nu="nvm use"
+
+alias pipes="/usr/local/Cellar/pipes-sh/1.3.0/bin/pipes.sh"
 
 eval $(thefuck --alias fuck)
 
@@ -46,5 +48,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/dominik/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dominik/google-cloud-sdk/completion.zsh.inc'; fi
-eval "$(atuin init zsh)"
 eval "$(zellij setup --generate-auto-start zsh)"
