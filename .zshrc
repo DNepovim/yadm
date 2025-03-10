@@ -13,6 +13,7 @@ alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias zelrc="vim ~/.config/zellij/config.kdl"
 alias nvc="nvim  ~/.config/nvim"
+alias yd="yadm enter lazygit"
 alias python=python3
 
 alias doom="cd ~/terminal-doom && zig-out/bin/terminal-doom"
