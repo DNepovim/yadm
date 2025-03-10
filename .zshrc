@@ -1,13 +1,33 @@
-ZSH_THEME="robbyrussell"
+# Install zplug with: curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
-plugins=(git yarn history aliases vi-mode brew colored-man-pages nvm)
+export ZPLUG_HOME=~/.zplug
+[[ ! -d $ZPLUG_HOME ]] && {
+  echo "zplug not found. Please install it first."
+  echo "Run: curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh"
+  return 1
+}
+source $ZPLUG_HOME/init.zsh
 
-export ZSH="$HOME/.oh-my-zsh"
+zplug "ohmyzsh/ohmyzsh"
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/yarn", from:oh-my-zsh
+zplug "plugins/history", from:oh-my-zsh
+zplug "plugins/aliases", from:oh-my-zsh
+zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "plugins/brew", from:oh-my-zsh
+zplug "plugins/colored-man-pages", from:oh-my-zsh
+zplug "lukechilds/zsh-nvm", defer:2
+zplug "dracula/zsh", as:theme
 
-source $ZSH/oh-my-zsh.sh
+if ! zplug check; then
+    printf "Install missing plugins? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
+zplug load
 
-# Custom aliases
 alias nts="nvim ~/notes"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
@@ -17,7 +37,6 @@ alias dot="yadm enter lazygit"
 alias python=python3
 
 alias doom="cd ~/terminal-doom && zig-out/bin/terminal-doom"
-
 
 alias ll="eza -a --long --header --icons --git --no-user"
 
@@ -42,7 +61,7 @@ alias nvc="nvim ~/.config/nvim"
 
 alias v="vercel"
 alias vd="vercel dev"
-alias vd="vercel build"
+alias vb="vercel build"
 
 alias nu="nvm use"
 
@@ -53,6 +72,3 @@ alias bonsai="cbonsai -S"
 eval $(thefuck --alias fuck)
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
