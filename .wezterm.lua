@@ -1,7 +1,58 @@
 local wezterm = require 'wezterm'
 local config = {}
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+local config = wezterm.config_builder()
 
-config.enable_tab_bar = false
+config.inactive_pane_hsb = {
+  saturation = 0.4,
+  brightness = 0.8,
+}
+
+config.keys = {
+  {
+    key = 'E',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.PromptInputLine {
+      description = 'Enter new name for tab',
+      action = wezterm.action_callback(function(window, pane, line)
+        -- line will be `nil` if they hit escape without entering anything
+        -- An empty string if they just hit enter
+        -- Or the actual line of text they wrote
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    },
+  },
+}
+
+bar.apply_to_config(config, {
+  separator = {
+    space = 1,
+    left_icon = '*',
+    right_icon = '',
+    field_icon = wezterm.nerdfonts.indent_line,
+  },
+  modules = {
+    tabs = {
+      active_tab_fg = 4,
+      inactive_tab_fg = 8,
+    },
+    workspace = {
+      enabled = false
+    },
+    leader = {
+      enabled = false
+    },
+    username = {
+      enabled = false,
+    },
+    hostname = {
+      enabled = false,
+    },
+  }
+})
+
 config.font = wezterm.font 'RecMonoCasual Nerd Font Mono'
 
 config.keys = {
@@ -93,3 +144,5 @@ config.keys = {
 }
 
 return config
+
+

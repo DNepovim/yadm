@@ -1,6 +1,7 @@
 # Install zplug with: curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
 export XDG_CONFIG_HOME="$HOME/.config"
+
 export ZPLUG_HOME=~/.zplug
 [[ ! -d $ZPLUG_HOME ]] && {
   echo "zplug not found. Please install it first."
@@ -22,6 +23,7 @@ zplug "dracula/zsh", as:theme
 zplug "zsh-users/zsh-autosuggestions"
 
 setopt AUTO_CD
+
 if ! zplug check; then
     printf "Install missing plugins? [y/N]: "
     if read -q; then
@@ -35,6 +37,7 @@ alias nts="nvim ~/notes"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias zelrc="vim ~/.config/zellij/config.kdl"
+alias wezrc="vim ~/.wezterm.lua"
 alias nvc="nvim  ~/.config/nvim"
 alias dot="yadm enter lazygit"
 alias python=python3
@@ -71,10 +74,13 @@ alias nu="nvm use"
 
 alias p="cd ~/projects"
 alias d="cd ~/Downloads"
+alias a="cd ~/projects/arcos-react"
+
 alias pipes="/usr/local/Cellar/pipes-sh/1.3.0/bin/pipes.sh"
 
 alias bonsai="cbonsai -S"
 
 eval $(thefuck --alias fuck)
+eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
