@@ -82,5 +82,14 @@ return {
       { "<leader><leader>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     },
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      sections = {
+        lualine_c = { "filename" },
+        lualine_z = {},
+      },
+    },
+  },
   { 'mrjones2014/smart-splits.nvim' }
 }
