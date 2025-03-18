@@ -76,4 +76,10 @@ return {
     event = "BufReadPre",
     config = true,
   },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    keys = {
+      { "<leader><leader>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+    },
+  },
 }
