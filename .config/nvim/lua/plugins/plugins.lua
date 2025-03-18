@@ -82,4 +82,5 @@ return {
       { "<leader><leader>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     },
   },
+  { 'mrjones2014/smart-splits.nvim' }
 }
