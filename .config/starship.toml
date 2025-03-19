@@ -1,0 +1,23 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = '$time$all'
+
+add_newline = true
+
+[time]
+disabled = false
+format = '[󱑁 $time]($style) '
+time_format = '%T'
+utc_time_offset = '+1'
+
+[character]
+success_symbol = '[](bold green) '
+error_symbol = '[](bold red) '
+vimcmd_symbol = '[](bold yellow) '
+
+[gcloud]
+disabled = true
+
+[nodejs]
+disabled = true
