@@ -1,51 +1,33 @@
 local wezterm = require 'wezterm'
 local config = {}
-local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local config = wezterm.config_builder()
 
+config.default_prog = {"/opt/homebrew/bin/fish", "--login"}
+config.harfbuzz_features = { 'calt=0' }
+config.default_cwd = '/Users/dominikblaha/projects'
+
 config.inactive_pane_hsb = {
-  saturation = 0.4,
-  brightness = 0.8,
+  saturation = 0.5,
+  brightness = 0.9,
 }
 
-bar.apply_to_config(config, {
-  separator = {
-    space = 1,
-    left_icon = '/',
-    right_icon = '',
-    field_icon = wezterm.nerdfonts.indent_line,
-  },
-  modules = {
-    tabs = {
-      active_tab_fg = 4,
-      inactive_tab_fg = 8,
+config.enable_tab_bar = false
+
+config.colors = {
+  foreground = '#eee',
+  background = '#111111',
+  tab_bar = {
+    background = '#111111',
+    active_tab = {
+      bg_color = '#111111',
+      fg_color = 'yellow',
     },
-    workspace = {
-      enabled = false
-    },
-    leader = {
-      enabled = false
-    },
-    pane = {
-      enabled = false,
-      icon = wezterm.nerdfonts.cod_multiple_windows,
-      color = 7,
-    },
-    username = {
-      enabled = false,
-    },
-    hostname = {
-      enabled = false,
-    },
-    clock = {
-      icon = '',
-      color = 4,
-    },
-    cwd = {
-      enabled = false,
+    inactive_tab = {
+      bg_color = '#111111',
+      fg_color = '#fff',
     }
   }
-})
+}
 
 local function is_vim(pane)
   return pane:get_user_vars().IS_NVIM == 'true'
@@ -161,5 +143,4 @@ config.keys = {
 }
 
 return config
-
 

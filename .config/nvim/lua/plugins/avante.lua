@@ -4,10 +4,9 @@ return {
     lazy = false,
     version = false,
     opts = {
-      provider = "claude",
-      claude = {
-        endpoint = "https://api.anthropic.com",
-        model = "claude-3-5-sonnet-20241022",
+      provider = "bedrock",
+      bedrock = {
+        model = "anthropic.claude-3-5-sonnet-20240620-v1:0",
         temperature = 0,
         max_tokens = 4096,
       },
