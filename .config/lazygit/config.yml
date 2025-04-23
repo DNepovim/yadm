@@ -1,4 +1,6 @@
 notARepository: 'skip'
+gui:
+  switchTabsWithPanelJumpKeys: true
 customCommands:
   - key: 'C'
     context: 'files'
@@ -17,6 +19,22 @@ customCommands:
             value: 'refactor'
           - name: 'lint'
             value: 'lint'
+      - type: 'menu'
+        title: 'Module'
+        key: 'module'
+        options:
+          - name: 'bag-loading'
+            value: 'bag-loading'
+          - name: 'bin-insertion'
+            value: 'bin-insertion'
+          - name: 'bin-inspection'
+            value: 'bin-inspection'
+          - name: 'picking'
+            value: 'picking'
+          - name: 'putaway'
+            value: 'putaway'
+          - name: 'route-collection'
+            value: 'route-collection'
       - type: 'input'
         title: 'JIRA ticket id'
         key: 'ticketId'

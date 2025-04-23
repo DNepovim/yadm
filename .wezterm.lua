@@ -14,8 +14,8 @@ config.inactive_pane_hsb = {
 config.enable_tab_bar = false
 
 config.colors = {
-  foreground = '#eee',
-  background = '#111111',
+  foreground = '#f3f3f3',
+  background = '#222',
   tab_bar = {
     background = '#111111',
     active_tab = {

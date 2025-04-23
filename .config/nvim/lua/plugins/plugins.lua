@@ -104,19 +104,36 @@ return {
     "echasnovski/mini.files",
     keys = {
       {
-        "<leader>ff",
+        "mm",
         function()
-          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-        end,
-        desc = "Open mini.files (Directory of Current File)",
-      },
-      {
-        "<leader>fF",
-        function()
-          require("mini.files").open(vim.uv.cwd(), true)
+          require("mini.files").open(vim.loop.cwd(), true)
         end,
         desc = "Open mini.files (cwd)",
       },
+      {
+        "mM",
+        function()
+          require("mini.files").open("/", true)
+        end,
+        desc = "Open mini.files (root dir)",
+      },
+    },
+    opts = {
+      windows = {
+        width_focus = 50,
+        width_nofocus = 15,
+        width_preview = 90,
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      { "ff", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+      { "FF", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      { "fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
+      { "fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      { "FR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
     },
   },
 }
