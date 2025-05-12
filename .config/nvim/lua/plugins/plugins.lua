@@ -106,16 +106,16 @@ return {
       {
         "mm",
         function()
-          require("mini.files").open(vim.loop.cwd(), true)
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
         end,
-        desc = "Open mini.files (cwd)",
+        desc = "Open mini.files (Directory of Current File)",
       },
       {
-        "mM",
+        "MM",
         function()
-          require("mini.files").open("/", true)
+          require("mini.files").open(vim.uv.cwd(), true)
         end,
-        desc = "Open mini.files (root dir)",
+        desc = "Open mini.files (cwd)",
       },
     },
     opts = {
@@ -129,11 +129,9 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      { "ff", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
-      { "FF", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      { "ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
-      { "fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "FR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
+      { "fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
     },
   },
 }
