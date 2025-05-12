@@ -64,7 +64,7 @@ end
 
 config.show_new_tab_button_in_tab_bar = false
 
-config.font = wezterm.font 'RecMonoCasual Nerd Font Mono'
+config.font = wezterm.font 'JetBrainsMono Nerd Font'
 
 config.keys = {
     split_nav('move', 'h'),
