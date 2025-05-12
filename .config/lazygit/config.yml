@@ -1,4 +1,7 @@
 notARepository: 'skip'
+git:
+  paging:
+    externalDiffCommand: difft --color=always
 gui:
   switchTabsWithPanelJumpKeys: true
 customCommands:
@@ -41,4 +44,4 @@ customCommands:
       - type: 'input'
         title: 'Message'
         key: 'message'
-    command: 'git commit -m "{{.Form.type}}: [{{.Form.ticketId}}] - {{.Form.message}}"'
+    command: 'git commit -m "{{.Form.type}}({{.Form.module}}): [{{.Form.ticketId}}] - {{.Form.message}}"'
