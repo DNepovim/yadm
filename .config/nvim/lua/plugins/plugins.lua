@@ -30,27 +30,40 @@ return {
       },
     },
   },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   dependencies = {
+  --     "marilari88/neotest-vitest",
+  --   },
+  --   config = function()
+  --     require("neotest").setup({
+  --       adapters = {
+  --         require("neotest-vitest"),
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     "nvim-neotest/neotest",
     dependencies = {
-      "marilari88/neotest-vitest",
+      "nvim-neotest/neotest-jest",
     },
     config = function()
       require("neotest").setup({
         adapters = {
-          require("neotest-vitest"),
+          require("neotest-jest")({
+            jestCommand = "npm test --",
+            jestConfigFile = "custom.jest.config.ts",
+            env = { CI = true },
+            cwd = function(path)
+              return vim.fn.getcwd()
+            end,
+          }),
         },
       })
     end,
   },
   { "styled-components/vim-styled-components" },
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
   {
     "tpope/vim-abolish",
     event = "VeryLazy",
@@ -68,10 +81,6 @@ return {
     },
   },
   {
-    "folke/zen-mode.nvim",
-    opts = {},
-  },
-  {
     "nvim-treesitter/nvim-treesitter-context",
     event = "BufReadPre",
     config = true,
@@ -80,15 +89,6 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     keys = {
       { "<leader><leader>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
-    },
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    opts = {
-      sections = {
-        lualine_c = { "filename" },
-        lualine_z = {},
-      },
     },
   },
   { "mrjones2014/smart-splits.nvim" },
@@ -132,6 +132,17 @@ return {
       { "ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
       { "fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
+    },
+  },
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = { "~/.config", "~/projects"},
     },
   },
 }

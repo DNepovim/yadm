@@ -1,4 +1,5 @@
 return {
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
@@ -18,10 +19,10 @@ return {
       "MunifTanjim/nui.nvim",
       "echasnovski/mini.pick",
       "nvim-telescope/telescope.nvim",
-      "hrsh7th/nvim-cmp", 
+      "hrsh7th/nvim-cmp",
       "ibhagwan/fzf-lua",
       "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua", 
+      "zbirenbaum/copilot.lua",
       {
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
@@ -44,4 +45,15 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
-  }
+  },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+    config = function()
+      require("mcphub").setup()
+    end,
+  },
+}
