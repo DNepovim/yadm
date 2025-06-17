@@ -2,12 +2,177 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-alias ll="eza --oneline --long --icons=always --hyperlink --all --group-directories-first"
 
-alias b="brew"
-alias bi="brew install"
+set -g fish_greeting ""
 
-alias fc="vim .config/fish/config.fish"
+# ALIASES
+
+alias ll='eza --oneline --long --icons=always --hyperlink --all --group-directories-first'
+
+## BREW
+alias ba='brew autoremove'
+alias bci='brew info --cask'
+alias bcin='brew install --cask'
+alias bcl='brew list --cask'
+alias bcn='brew cleanup'
+alias bco='brew outdated --cask'
+alias bcrin='brew reinstall --cask'
+alias bcubc='brew upgrade --cask && brew cleanup'
+alias bcubo='brew update && brew outdated --cask'
+alias bcup='brew upgrade --cask'
+alias bfu='brew upgrade --formula'
+alias bi='brew install'
+alias bl='brew list'
+alias bo='brew outdated'
+alias brewp='brew pin'
+alias brewsp='brew list --pinned'
+alias bsl='brew services list'
+alias bsoff='brew services stop'
+alias bsoffa='bsoff --all'
+alias bson='brew services start'
+alias bsona='bson --all'
+alias bsr='brew services run'
+alias bsra='bsr --all'
+alias bu='brew update'
+alias bubo='brew update && brew outdated'
+alias bubu='bubo && bup'
+alias bubug='bubo && bugbc'
+alias bugbc='brew upgrade --greedy && brew cleanup'
+alias bup='brew upgrade'
+alias buz='brew uninstall --zap'
+
+## DOCKER
+alias dbl='docker build'
+alias dcin='docker container inspect'
+alias dcls='docker container ls'
+alias dclsa='docker container ls -a'
+alias dib='docker image build'
+alias dii='docker image inspect'
+alias dils='docker image ls'
+alias dipu='docker image push'
+alias dipru='docker image prune -a'
+alias dirm='docker image rm'
+alias dit='docker image tag'
+alias dlo='docker container logs'
+alias dnc='docker network create'
+alias dncn='docker network connect'
+alias dndcn='docker network disconnect'
+alias dni='docker network inspect'
+alias dnls='docker network ls'
+alias dnrm='docker network rm'
+alias dpo='docker container port'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dpu='docker pull'
+alias dr='docker container run'
+alias drit='docker container run -it'
+alias drm='docker container rm'
+alias 'drm!'='docker container rm -f'
+alias dst='docker container start'
+alias drs='docker container restart'
+alias dsta='docker stop $(docker ps -q)'
+alias dstp='docker container stop'
+alias dsts='docker stats'
+alias dtop='docker top'
+alias dvi='docker volume inspect'
+alias dvls='docker volume ls'
+alias dvprune='docker volume prune'
+alias dxc='docker container exec'
+alias dxcit='docker container exec -it'
+
+## GIT
+alias g='git'
+alias gs='git status'
+alias gcl='git clone'
+alias ga='git add'
+alias gaa='git add --all'
+alias gapa='git add --patch'
+alias gau='git add --update'
+alias gav='git add --verbose'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign --message "--wip-- [skip ci]"'
+alias gam='git am'
+alias gama='git am --abort'
+alias gamc='git am --continue'
+alias gamscp='git am --show-current-patch'
+alias gams='git am --skip'
+alias gap='git apply'
+alias gapt='git apply --3way'
+alias gbs='git bisect'
+alias gbsb='git bisect bad'
+alias gbsg='git bisect good'
+alias gbsn='git bisect new'
+alias gbso='git bisect old'
+alias gbsr='git bisect reset'
+alias gbss='git bisect start'
+alias gbl='git blame -w'
+alias gb='git branch'
+alias gba='git branch --all'
+alias gbd='git branch --delete'
+alias gbD='git branch --delete --force'
+
+## FISH
+alias f='fish'
+alias frc='vim ~/.config/fish/config.fish'
+
+## FISHER
+alias fr='fisher'
+alias fri='fisher install'
+alias frl='fisher list'
+
+## NPM
+alias n='npm'
+alias ni='npm install'
+
+## NVM
+alias nvl='nvm ls'
+alias nvlr='nvm ls-remote'
+alias nvu='nvm use'
+alias nvd='nvm use node'
+alias nvi='nvm install'
+
+## YARN
+alias y='yarn'
+alias ya='yarn add'
+alias yad='yarn add --dev'
+alias yap='yarn add --peer'
+alias yb='yarn build'
+alias ycc='yarn cache clean'
+alias yd='yarn dev'
+alias yf='yarn format'
+alias yh='yarn help'
+alias yi='yarn init'
+alias yin='yarn install'
+alias yln='yarn lint'
+alias ylnf='yarn lint --fix'
+alias yp='yarn pack'
+alias yrm='yarn remove'
+alias yrun='yarn run'
+alias ys='yarn serve'
+alias yst='yarn start'
+alias yt='yarn test'
+alias ytc='yarn test --coverage'
+alias yui='yarn upgrade-interactive'
+alias yup='yarn upgrade'
+alias yv='yarn version'
+alias yw='yarn workspace'
+alias yws='yarn workspaces'
+alias yy='yarn why'
+alias yga='yarn global add'
+
+alias lzg='lazygit'
+alias dot='lazygit -w ~ -g ~/.local/share/yadm/repo.git'
+
+alias nv='nvim .'
+alias nvc='nvim ~/.config/nvim'
+
+alias mkd='mkdir'
+alias p='cd ~/projects'
+
+alias h='cd ~'
+
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 starship init fish | source
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
