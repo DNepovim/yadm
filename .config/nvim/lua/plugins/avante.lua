@@ -5,11 +5,18 @@ return {
     lazy = false,
     version = false,
     opts = {
-      provider = "bedrock",
-      bedrock = {
-        model = "anthropic.claude-3-5-sonnet-20240620-v1:0",
-        temperature = 0,
-        max_tokens = 4096,
+      provider = "claude", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
+      mode = "agentic", -- The default mode for interaction. "agentic" uses tools to automatically generate code, "legacy" uses the old planning method to generate code.
+      auto_suggestions_provider = "claude",
+      providers = {
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-3-5-sonnet-20241022",
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 4096,
+          },
+        },
       },
     },
     build = "make",
@@ -46,14 +53,14 @@ return {
       },
     },
   },
-  {
-    "ravitemer/mcphub.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-    config = function()
-      require("mcphub").setup()
-    end,
-  },
+  --  {
+  --    "ravitemer/mcphub.nvim",
+  --    dependencies = {
+  --      "nvim-lua/plenary.nvim",
+  --    },
+  --    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+  --    config = function()
+  --      require("mcphub").setup()
+  --    end,
+  --  },
 }
