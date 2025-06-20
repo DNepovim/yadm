@@ -4,7 +4,7 @@ local config = wezterm.config_builder()
 
 config.default_prog = {"/opt/homebrew/bin/fish", "--login"}
 config.harfbuzz_features = { 'calt=0' }
-config.default_cwd = '/Users/dominikblaha/projects'
+config.default_cwd = '/Users/dominik/projects'
 
 config.inactive_pane_hsb = {
   saturation = 0.5,
