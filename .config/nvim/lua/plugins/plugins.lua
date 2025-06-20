@@ -142,7 +142,7 @@ return {
     ---@module "auto-session"
     ---@type AutoSession.Config
     opts = {
-      suppressed_dirs = { "~/.config", "~/projects"},
+      suppressed_dirs = { "~/.config", "~/projects" },
     },
   },
 }
