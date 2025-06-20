@@ -1,178 +1,137 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# NVM initialization for Fish shell
+set -gx NVM_DIR "$HOME/.nvm"
+
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # TODO: this is a little bit slow
+    nvm use default > /dev/null 2>&1
 end
 
-
+# Turn off fish greeting message
 set -g fish_greeting ""
 
 # ALIASES
 
-alias ll='eza --oneline --long --icons=always --hyperlink --all --group-directories-first'
+abbr --add ll eza --oneline --long --icons=always --hyperlink --all --group-directories-first
+abbr --add llr ll -T --level=1
 
 ## BREW
-alias ba='brew autoremove'
-alias bci='brew info --cask'
-alias bcin='brew install --cask'
-alias bcl='brew list --cask'
-alias bcn='brew cleanup'
-alias bco='brew outdated --cask'
-alias bcrin='brew reinstall --cask'
-alias bcubc='brew upgrade --cask && brew cleanup'
-alias bcubo='brew update && brew outdated --cask'
-alias bcup='brew upgrade --cask'
-alias bfu='brew upgrade --formula'
-alias bi='brew install'
-alias bl='brew list'
-alias bo='brew outdated'
-alias brewp='brew pin'
-alias brewsp='brew list --pinned'
-alias bsl='brew services list'
-alias bsoff='brew services stop'
-alias bsoffa='bsoff --all'
-alias bson='brew services start'
-alias bsona='bson --all'
-alias bsr='brew services run'
-alias bsra='bsr --all'
-alias bu='brew update'
-alias bubo='brew update && brew outdated'
-alias bubu='bubo && bup'
-alias bubug='bubo && bugbc'
-alias bugbc='brew upgrade --greedy && brew cleanup'
-alias bup='brew upgrade'
-alias buz='brew uninstall --zap'
+abbr --add bi brew install
+abbr --add bl brew list
+abbr --add bo brew outdated
+abbr --add bic brew install --cask
+abbr --add blc brew list --cask
+abbr --add bcl brew cleanup
+abbr --add bu brew update
+abbr --add bup brew upgrade
+abbr --add buz brew uninstall --zap
 
 ## DOCKER
-alias dbl='docker build'
-alias dcin='docker container inspect'
-alias dcls='docker container ls'
-alias dclsa='docker container ls -a'
-alias dib='docker image build'
-alias dii='docker image inspect'
-alias dils='docker image ls'
-alias dipu='docker image push'
-alias dipru='docker image prune -a'
-alias dirm='docker image rm'
-alias dit='docker image tag'
-alias dlo='docker container logs'
-alias dnc='docker network create'
-alias dncn='docker network connect'
-alias dndcn='docker network disconnect'
-alias dni='docker network inspect'
-alias dnls='docker network ls'
-alias dnrm='docker network rm'
-alias dpo='docker container port'
-alias dps='docker ps'
-alias dpsa='docker ps -a'
-alias dpu='docker pull'
-alias dr='docker container run'
-alias drit='docker container run -it'
-alias drm='docker container rm'
-alias 'drm!'='docker container rm -f'
-alias dst='docker container start'
-alias drs='docker container restart'
-alias dsta='docker stop $(docker ps -q)'
-alias dstp='docker container stop'
-alias dsts='docker stats'
-alias dtop='docker top'
-alias dvi='docker volume inspect'
-alias dvls='docker volume ls'
-alias dvprune='docker volume prune'
-alias dxc='docker container exec'
-alias dxcit='docker container exec -it'
+abbr --add dcd docker compose down
+abbr --add dcu docker compose up
 
 ## GIT
-alias g='git'
-alias gs='git status'
-alias gcl='git clone'
-alias ga='git add'
-alias gaa='git add --all'
-alias gapa='git add --patch'
-alias gau='git add --update'
-alias gav='git add --verbose'
-alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign --message "--wip-- [skip ci]"'
-alias gam='git am'
-alias gama='git am --abort'
-alias gamc='git am --continue'
-alias gamscp='git am --show-current-patch'
-alias gams='git am --skip'
-alias gap='git apply'
-alias gapt='git apply --3way'
-alias gbs='git bisect'
-alias gbsb='git bisect bad'
-alias gbsg='git bisect good'
-alias gbsn='git bisect new'
-alias gbso='git bisect old'
-alias gbsr='git bisect reset'
-alias gbss='git bisect start'
-alias gbl='git blame -w'
-alias gb='git branch'
-alias gba='git branch --all'
-alias gbd='git branch --delete'
-alias gbD='git branch --delete --force'
+abbr --add g git
+abbr --add gc git commit -m 
+abbr --add gs git status
+abbr --add gcl git clone
+abbr --add ga git add
+abbr --add gaa git add --all
+abbr --add gapa git add --patch
+abbr --add gau git add --update
+abbr --add gav git add --verbose
+abbr --add gr git rebase
+abbr --add gri git rebase -i
+abbr --add grc git rebase --continue
+abbr --add gp git push
+abbr --add gpf git push --force-with-lease
 
 ## FISH
-alias f='fish'
-alias frc='vim ~/.config/fish/config.fish'
+abbr --add f fish
+abbr --add frc vim ~/.config/fish/config.fish
 
 ## FISHER
-alias fr='fisher'
-alias fri='fisher install'
-alias frl='fisher list'
+abbr --add fr fisher
+abbr --add fri fisher install
+abbr --add frl fisher list
 
 ## NPM
-alias n='npm'
-alias ni='npm install'
+abbr --add n npm
+abbr --add ni npm install
+abbr --add nd npm run dev
+abbr --add nb npm run build
+abbr --add nt npm run test
 
 ## NVM
-alias nvl='nvm ls'
-alias nvlr='nvm ls-remote'
-alias nvu='nvm use'
-alias nvd='nvm use node'
-alias nvi='nvm install'
+abbr --add nvl nvm ls
+abbr --add nvlr nvm ls-remote
+abbr --add nvu nvm use
+abbr --add nvd nvm use default
+abbr --add nvi nvm install
 
 ## YARN
-alias y='yarn'
-alias ya='yarn add'
-alias yad='yarn add --dev'
-alias yap='yarn add --peer'
-alias yb='yarn build'
-alias ycc='yarn cache clean'
-alias yd='yarn dev'
-alias yf='yarn format'
-alias yh='yarn help'
-alias yi='yarn init'
-alias yin='yarn install'
-alias yln='yarn lint'
-alias ylnf='yarn lint --fix'
-alias yp='yarn pack'
-alias yrm='yarn remove'
-alias yrun='yarn run'
-alias ys='yarn serve'
-alias yst='yarn start'
-alias yt='yarn test'
-alias ytc='yarn test --coverage'
-alias yui='yarn upgrade-interactive'
-alias yup='yarn upgrade'
-alias yv='yarn version'
-alias yw='yarn workspace'
-alias yws='yarn workspaces'
-alias yy='yarn why'
-alias yga='yarn global add'
+abbr --add y yarn
+abbr --add ya yarn add
+abbr --add yad yarn add --dev
+abbr --add yb yarn build
+abbr --add ycc yarn cache clean
+abbr --add yd yarn dev
+abbr --add yi yarn init
+abbr --add yln yarn lint
+abbr --add ylnf yarn lint --fix
+abbr --add yrm yarn remove
+abbr --add yt yarn test
+abbr --add ytc yarn test --coverage
+abbr --add yui yarn upgrade-interactive
+abbr --add yup yarn upgrade
+abbr --add yw yarn workspace
+abbr --add yws yarn workspaces
+abbr --add yy yarn why
+abbr --add yga yarn global add
 
-alias lzg='lazygit'
-alias dot='lazygit -w ~ -g ~/.local/share/yadm/repo.git'
+## PNPM
+abbr --add p pnpm
+abbr --add pa pnpm add
+abbr --add pad pnpm add --save-dev
+abbr --add pap pnpm add --save-peer
+abbr --add prm pnpm remove
+abbr --add pi pnpm install
+abbr --add pu pnpm update
+abbr --add pui pnpm update --interactive
+abbr --add puil pnpm update --interactive --latest
+abbr --add pga pnpm add --global
+abbr --add pgls pnpm list --global
+abbr --add pgrm pnpm remove --global
+abbr --add pgu pnpm update --global
+abbr --add pd pnpm run dev
+abbr --add pb pnpm run build
+abbr --add pst pnpm start
+abbr --add pt pnpm test
+abbr --add ptc pnpm test --coverage
+abbr --add pln pnpm run lint
 
-alias nv='nvim .'
-alias nvc='nvim ~/.config/nvim'
+abbr --add rmnm rm -rfv node_modules
 
-alias mkd='mkdir'
-alias p='cd ~/projects'
+abbr --add lzg lazygit
+abbr --add dot lazygit -w ~ -g ~/.local/share/yadm/repo.git
 
-alias h='cd ~'
+abbr --add nv nvim .
+abbr --add nvc nvim ~/.config/nvim
 
-alias ...='cd ../..'
-alias ....='cd ../../..'
+abbr --add mkd mkdir
+
+abbr --add p cd ~/projects
+abbr --add pfe cd ~/projects/fe-monorepo
+abbr --add pfl cd ~/projects/full-stack-template-v1
+abbr --add h cd ~
+
+abbr --add rc cd ~/.config
+
+abbr --add ... cd ../..
+abbr --add .... cd ../../..
+
+abbr --add wzrc vim ~/.wezterm.lua
 
 starship init fish | source
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
