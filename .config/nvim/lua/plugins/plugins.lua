@@ -126,6 +126,12 @@ return {
         width_nofocus = 15,
         width_preview = 90,
       },
+      mappings = {
+        go_in = "L",
+        go_in_plus = "l",
+        go_out = "H",
+        go_out_plus = "h",
+      },
     },
   },
   {
