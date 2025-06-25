@@ -22,6 +22,8 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     lazy = false,
     opts = {
+      open_on_startup = false,
+      close_if_last_window = true,
       filesystem = {
         filtered_items = {
           hide_gitignored = false,
@@ -132,6 +134,7 @@ return {
       { "ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
       { "fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
+      { "sg", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
     },
   },
   {
