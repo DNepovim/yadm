@@ -33,7 +33,7 @@ abbr --add dcu docker compose up
 
 ## GIT
 abbr --add g git
-abbr --add gc git commit -m 
+abbr --add gc git commit -m
 abbr --add gs git status
 abbr --add gcl git clone
 abbr --add ga git add
@@ -106,15 +106,18 @@ abbr --add pgrm pnpm remove --global
 abbr --add pgu pnpm update --global
 abbr --add pd pnpm run dev
 abbr --add pb pnpm run build
-abbr --add pst pnpm start
+abbr --add pr pnpm run 
+abbr --add ps pnpm start
 abbr --add pt pnpm test
 abbr --add ptc pnpm test --coverage
 abbr --add pln pnpm run lint
+abbr --add psp pnpm store prune
 
 abbr --add rmnm rm -rfv node_modules
 
 abbr --add lzg lazygit
 abbr --add dot lazygit -w ~ -g ~/.local/share/yadm/repo.git
+abbr --add lzd lazydocker
 
 abbr --add nv nvim .
 abbr --add nvc nvim ~/.config/nvim
@@ -132,6 +135,9 @@ abbr --add ... cd ../..
 abbr --add .... cd ../../..
 
 abbr --add wzrc vim ~/.wezterm.lua
+abbr --add nts nvim ~/projects/my-notes
 
 starship init fish | source
+
+bind ctrl-l accept-autosuggestion
 
