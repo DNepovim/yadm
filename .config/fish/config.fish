@@ -3,6 +3,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # NVM initialization for Fish shell
 set -gx NVM_DIR "$HOME/.nvm"
 
+fish_vi_key_bindings
 if status is-interactive
     # TODO: this is a little bit slow
     nvm use default > /dev/null 2>&1
