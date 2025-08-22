@@ -16,25 +16,7 @@ return {
             },
           },
         },
-        -- tailwindcss = {
-        --   filetypes = { "astro", "javascript", "typescript", "react" },
-        --   init_options = {
-        --     userLanguages = {
-        --       astro = "html",
-        --     },
-        --   },
-        -- },
       },
     },
   },
-  -- {
-  --   "luckasRanarison/tailwind-tools.nvim",
-  --   name = "tailwind-tools",
-  --   build = ":UpdateRemotePlugins",
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "neovim/nvim-lspconfig",
-  --   },
-  --   opts = {},
-  -- },
 }

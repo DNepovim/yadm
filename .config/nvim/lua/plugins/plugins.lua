@@ -20,7 +20,8 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    lazy = false,
+    lazy = true,
+    init = function() end,
     opts = {
       open_on_startup = false,
       close_if_last_window = true,
@@ -93,7 +94,6 @@ return {
       { "<leader><leader>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     },
   },
-  { "mrjones2014/smart-splits.nvim" },
   {
     "Goose97/timber.nvim",
     version = "*",
@@ -153,5 +153,48 @@ return {
     opts = {
       suppressed_dirs = { "~/.config", "~/projects" },
     },
+  },
+  {
+    "folke/noice.nvim",
+    opts = {
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      timeout = 20000,
+    },
+  },
+  {
+    "leath-dub/snipe.nvim",
+    keys = {
+      {
+        "gb",
+        function()
+          require("snipe").open_buffer_menu()
+        end,
+        desc = "Open Snipe buffer menu",
+      },
+    },
+    opts = {},
+  },
+  {
+    "harrisoncramer/gitlab.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "stevearc/dressing.nvim", -- Recommended but not required. Better UI for pickers.
+      "nvim-tree/nvim-web-devicons", -- Recommended but not required. Icons in discussion tree.
+    },
+    build = function()
+      require("gitlab.server").build(true)
+    end, -- Builds the Go binary
+    config = function()
+      require("gitlab").setup()
+    end,
   },
 }
