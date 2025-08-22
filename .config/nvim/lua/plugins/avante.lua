@@ -29,7 +29,19 @@ return {
       "hrsh7th/nvim-cmp",
       "ibhagwan/fzf-lua",
       "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua",
+      {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+          require("copilot").setup({
+            panel = { enabled = false },
+            suggestion = { enabled = false },
+          })
+
+          vim.cmd("Copilot disable")
+        end,
+      },
       {
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
