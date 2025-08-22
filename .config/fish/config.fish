@@ -143,6 +143,38 @@ abbr --add .... cd ../../..
 abbr --add wzrc vim ~/.wezterm.lua
 abbr --add nts nvim ~/projects/my-notes
 
+function rmrf
+    # Check if an argument is provided
+    if test -z "$argv"
+        return 1
+    end
+
+    set -l target "$argv[1]"
+
+    # Check if the target exists
+    if not test -e "$target"
+        return 1
+    end
+
+    # Security check to prevent deleting root or current directory
+    if test "$target" = "." -o "$target" = "/"
+        return 1
+    end
+
+    # Calculate total items for the progress bar
+    # du -a counts all files and directories recursively. wc -l counts lines.
+    set -l total_items (du -a "$target" | wc -l)
+
+    # Check if there are items to delete
+    if test "$total_items" -eq 0
+        return 0
+    end
+
+    # Execute the rm command, pipe its verbose output through pv,
+    # and redirect pv's own output to /dev/null to avoid duplicate progress bars.
+    rm -rv "$target" | pv -l -s $total_items > /dev/null
+end
+
 starship init fish | source
 
 bind ctrl-l accept-autosuggestion
