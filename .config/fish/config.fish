@@ -47,6 +47,7 @@ abbr --add gri git rebase -i
 abbr --add grc git rebase --continue
 abbr --add gp git push
 abbr --add gpf git push --force-with-lease
+abbr --add gl git log
 
 ## FISH
 abbr --add f fish
@@ -112,9 +113,11 @@ abbr --add ps pnpm start
 abbr --add pt pnpm test
 abbr --add ptc pnpm test --coverage
 abbr --add pln pnpm run lint
+abbr --add plnc pnpm run lint:check
+abbr --add plnf pnpm run lint:fix
+abbr --add ptc pnpm run type-check
 abbr --add psp pnpm store prune
 
-abbr --add rmnm rm -rfv node_modules
 
 abbr --add lzg lazygit
 abbr --add dot lazygit -w ~ -g ~/.local/share/yadm/repo.git
@@ -125,7 +128,9 @@ abbr --add nvc nvim ~/.config/nvim
 
 abbr --add mkd mkdir
 
-abbr --add p cd ~/projects
+abbr --add pr cd ~/projects
+abbr --add c cd ~/.config
+abbr --add v cd ~/projects/phasis-kai-frontend
 abbr --add pfe cd ~/projects/fe-monorepo
 abbr --add pfl cd ~/projects/full-stack-template-v1
 abbr --add h cd ~
