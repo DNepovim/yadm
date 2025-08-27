@@ -1,0 +1,5 @@
+[user]
+	email = jsem@dominikblaha.cz
+        name = Dominik Bláha
+[fetch]
+	prune = true
