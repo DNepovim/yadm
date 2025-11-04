@@ -6,33 +6,32 @@ config.default_prog = {"/opt/homebrew/bin/fish", "--login"}
 config.harfbuzz_features = { 'calt=0' }
 config.default_cwd = '/Users/dominik/projects'
 
-config.inactive_pane_hsb = {
-  saturation = 0.5,
-  brightness = 0.9,
-}
-
+config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
-
-config.colors = {
-  foreground = '#f3f3f3',
-  background = '#222',
-  tab_bar = {
-    background = '#111111',
-    active_tab = {
-      bg_color = '#111111',
-      fg_color = 'yellow',
-    },
-    inactive_tab = {
-      bg_color = '#111111',
-      fg_color = '#fff',
-    }
-  }
+config.window_padding = {
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
 }
+
+config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
+config.colors = {
+  background = "#111414"
+}
+config.font_size = 13
+config.line_height = 1.3
+config.font = wezterm.font 'BlexMono Nerd Font'
+-- config.font = wezterm.font 'Hack Nerd Font'
+
 
 local function is_vim(pane)
   return pane:get_user_vars().IS_NVIM == 'true'
 end
 
+wezterm.on('update-right-status', function(window, pane)
+  window:set_right_status(window:active_workspace())
+end)
 
 local direction_keys = {
   h = 'Left',
@@ -64,8 +63,6 @@ end
 
 config.show_new_tab_button_in_tab_bar = false
 
-config.font = wezterm.font 'JetBrainsMono Nerd Font'
-
 config.keys = {
     split_nav('move', 'h'),
     split_nav('move', 'j'),
@@ -75,6 +72,7 @@ config.keys = {
     split_nav('resize', 'j'),
     split_nav('resize', 'k'),
     split_nav('resize', 'l'),
+  { key = 'Tab', mods = 'CTRL' , action = wezterm.action.Nop },
   {
     key = 'd',
     mods = 'CMD',
@@ -139,6 +137,37 @@ config.keys = {
     key = 'l',
     mods = 'CTRL|ALT',
     action = wezterm.action.AdjustPaneSize { 'Right', 5 },
+  },
+
+  -- Switch to the default workspace
+  {
+    key = 'y',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SwitchToWorkspace {
+      name = 'default',
+    },
+  },
+  -- Switch to a monitoring workspace, which will have `top` launched into it
+  {
+    key = 'u',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SwitchToWorkspace {
+      name = 'monitoring',
+      spawn = {
+        args = { 'top' },
+      },
+    },
+  },
+  -- Create a new workspace with a random name and switch to it
+  { key = 'i', mods = 'CTRL|SHIFT', action = wezterm.action.SwitchToWorkspace },
+  -- Show the launcher in fuzzy selection mode and have it list all workspaces
+  -- and allow activating one.
+  {
+    key = '9',
+    mods = 'ALT',
+    action = wezterm.action.ShowLauncherArgs {
+      flags = 'FUZZY|WORKSPACES',
+    },
   },
 }
 

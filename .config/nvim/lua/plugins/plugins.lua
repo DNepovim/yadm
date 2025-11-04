@@ -1,13 +1,9 @@
 return {
-
   {
     "ap/vim-css-color",
   },
   {
-    "olrtg/nvim-emmet",
-    config = function()
-      vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
-    end,
+    "mattn/emmet-vim",
   },
   {
     "okuuva/auto-save.nvim",
@@ -88,6 +84,7 @@ return {
     event = "BufReadPre",
     config = true,
   },
+  { "virchau13/tree-sitter-astro" },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     keys = {
@@ -103,7 +100,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.files",
+    "nvim-mini/mini.files",
     keys = {
       {
         "mm",
@@ -126,6 +123,11 @@ return {
         width_nofocus = 15,
         width_preview = 90,
       },
+      files = {
+        scope = function()
+          return vim.fn.getcwd()
+        end,
+      },
       mappings = {
         go_in = "L",
         go_in_plus = "l",
@@ -136,12 +138,6 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    keys = {
-      { "ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
-      { "fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
-      { "fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
-      { "sg", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
-    },
   },
   {
     "rmagatti/auto-session",
@@ -196,5 +192,46 @@ return {
     config = function()
       require("gitlab").setup()
     end,
+  },
+  {
+    "danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    config = function()
+      require("telescope").load_extension("smart_open")
+    end,
+    dependencies = {
+      "kkharji/sqlite.lua",
+      -- Only required if using match_algorithm fzf
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+      { "nvim-telescope/telescope-fzy-native.nvim" },
+    },
+  },
+  { "eandrju/cellular-automaton.nvim" },
+  {
+    "tamton-aquib/duck.nvim",
+    keys = {
+      {
+        "<leader>dd",
+        function()
+          require("duck").hatch()
+        end,
+        desc = "Hatch duck",
+      },
+      {
+        "<leader>dk",
+        function()
+          require("duck").cook()
+        end,
+        desc = "Cook duck",
+      },
+      {
+        "<leader>da",
+        function()
+          require("duck").cook_all()
+        end,
+        desc = "Cook all duck",
+      },
+    },
   },
 }

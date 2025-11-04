@@ -5,3 +5,6 @@ vim.g.snacks_animate = false
 
 -- take "-" as a part of word
 vim.opt.iskeyword:append("-")
+
+vim.opt.showmode = false
+

@@ -19,3 +19,10 @@ vim.api.nvim_create_autocmd("User", {
     vim.opt.showtabline = 0
   end,
 })
+
+-- parentheses highlight
+vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
+  callback = function()
+    vim.cmd([[highlight MatchParen guibg=#555555]])
+  end,
+})

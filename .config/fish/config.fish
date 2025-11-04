@@ -34,6 +34,8 @@ abbr --add dcu docker compose up
 
 ## GIT
 abbr --add g git
+abbr --add gf git fetch --prune
+abbr --add gfa git fetch --prune --all
 abbr --add gc git commit -m
 abbr --add gs git status
 abbr --add gcl git clone
@@ -48,6 +50,7 @@ abbr --add grc git rebase --continue
 abbr --add gp git push
 abbr --add gpf git push --force-with-lease
 abbr --add gl git log
+abbr --add grl git reflog
 
 ## FISH
 abbr --add f fish
@@ -111,12 +114,15 @@ abbr --add pb pnpm run build
 abbr --add pr pnpm run 
 abbr --add ps pnpm start
 abbr --add pt pnpm test
+abbr --add pc pnpm check
+abbr --add pfw pnpm run format:write
 abbr --add ptc pnpm test --coverage
 abbr --add pln pnpm run lint
 abbr --add plnc pnpm run lint:check
 abbr --add plnf pnpm run lint:fix
 abbr --add ptc pnpm run type-check
 abbr --add psp pnpm store prune
+abbr --add pfw pnpm run format:write
 
 
 abbr --add lzg lazygit
@@ -175,7 +181,14 @@ function rmrf
     rm -rv "$target" | pv -l -s $total_items > /dev/null
 end
 
+abbr --add ca cursor-agent
+abbr --add car cursor-agent resume
+
+thefuck --alias | source
+
 starship init fish | source
 
 bind ctrl-l accept-autosuggestion
 
+fish_add_path $HOME/.local/bin
+fish_add_path /Applications/WezTerm.app/Contents/MacOS

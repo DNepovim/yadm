@@ -44,3 +44,17 @@ vim.keymap.set("n", "SJ", require("smart-splits").swap_buf_down, { desc = "Swap 
 vim.keymap.set("n", "SK", require("smart-splits").swap_buf_up, { desc = "Swap buffer up" })
 vim.keymap.set("n", "SL", require("smart-splits").swap_buf_right, { desc = "Swap buffer right" })
 
+-- Search
+vim.keymap.set("n", "ff", ":Telescope smart_open<Return><Escape>", { desc = "Smart open (noraml mode)" })
+vim.keymap.set("n", "fi", ":Telescope smart_open<Return>", { desc = "Smart open (insert mode)" })
+vim.keymap.set("n", "fs", ":FzfLua files<Return>", { desc = "Find Files (cwd)" })
+vim.keymap.set("n", "fg", ":FzfLua git_status<Enter>", { desc = "Find Files (git-files)" })
+vim.keymap.set("n", "fr", ":Telescope oldfiles<Enter>", { desc = "Recent (cwd)" })
+vim.keymap.set("n", "sg", ":FzfLua live_grep<Enter>", { desc = "Grep (cwd)" })
+
+-- Surround
+vim.keymap.set("n", "gscn", 'gsr"{cn(%s)}', { desc = "Grep (cwd)" })
+
+vim.keymap.set("n", "<leader>ar", function()
+  vim.cmd("normal! gsaa({return }")
+end, { desc = "Transform arrow function to include return" })

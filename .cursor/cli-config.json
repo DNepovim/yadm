@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Shell(ls)"
+      "Shell(ls)",
+      "Shell(npx tsc)",
+      "Shell(pnpm typecheck)",
+      "Shell(pnpm lint:check)",
+      "Shell(pnpm -s)"
     ],
     "deny": []
   },
@@ -10,18 +14,19 @@
     "vimMode": true
   },
   "model": {
-    "modelId": "default",
-    "displayModelId": "auto",
-    "displayName": "Auto",
-    "displayNameShort": "Auto",
-    "aliases": [
-      "auto"
-    ]
+    "modelId": "gpt-5",
+    "displayModelId": "gpt-5",
+    "displayName": "GPT-5",
+    "displayNameShort": "GPT-5",
+    "aliases": []
   },
-  "hasChangedDefaultModel": false,
+  "hasChangedDefaultModel": true,
   "privacyCache": {
     "ghostMode": false,
     "privacyMode": 4,
-    "updatedAt": 1757936736172
+    "updatedAt": 1762167871974
+  },
+  "network": {
+    "useHttp1ForAgent": false
   }
 }
