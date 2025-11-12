@@ -138,32 +138,9 @@ config.keys = {
     mods = 'CTRL|ALT',
     action = wezterm.action.AdjustPaneSize { 'Right', 5 },
   },
-
-  -- Switch to the default workspace
+  { key = 'w', mods = 'ALT|SHIFT', action = wezterm.action.SwitchToWorkspace },
   {
-    key = 'y',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SwitchToWorkspace {
-      name = 'default',
-    },
-  },
-  -- Switch to a monitoring workspace, which will have `top` launched into it
-  {
-    key = 'u',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SwitchToWorkspace {
-      name = 'monitoring',
-      spawn = {
-        args = { 'top' },
-      },
-    },
-  },
-  -- Create a new workspace with a random name and switch to it
-  { key = 'i', mods = 'CTRL|SHIFT', action = wezterm.action.SwitchToWorkspace },
-  -- Show the launcher in fuzzy selection mode and have it list all workspaces
-  -- and allow activating one.
-  {
-    key = '9',
+    key = 'w',
     mods = 'ALT',
     action = wezterm.action.ShowLauncherArgs {
       flags = 'FUZZY|WORKSPACES',

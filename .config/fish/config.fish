@@ -4,6 +4,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 set -gx NVM_DIR "$HOME/.nvm"
 
 fish_vi_key_bindings
+set -gx PNPM_HOME "/Users/dominik/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
 if status is-interactive
     # TODO: this is a little bit slow
     nvm use default > /dev/null 2>&1
@@ -147,6 +149,8 @@ abbr --add ... cd ../..
 abbr --add .... cd ../../..
 
 abbr --add wzrc vim ~/.wezterm.lua
+abbr --add wz wezterm
+abbr --add wzc wezterm cli
 abbr --add nts nvim ~/projects/my-notes
 
 function rmrf

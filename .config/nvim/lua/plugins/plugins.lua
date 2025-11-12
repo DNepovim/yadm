@@ -3,9 +3,6 @@ return {
     "ap/vim-css-color",
   },
   {
-    "mattn/emmet-vim",
-  },
-  {
     "okuuva/auto-save.nvim",
     version = "*",
     cmd = "ASToggle",
@@ -29,35 +26,15 @@ return {
       },
     },
   },
-  -- {
-  --   "nvim-neotest/neotest",
-  --   dependencies = {
-  --     "marilari88/neotest-vitest",
-  --   },
-  --   config = function()
-  --     require("neotest").setup({
-  --       adapters = {
-  --         require("neotest-vitest"),
-  --       },
-  --     })
-  --   end,
-  -- },
   {
     "nvim-neotest/neotest",
     dependencies = {
-      "nvim-neotest/neotest-jest",
+      "marilari88/neotest-vitest",
     },
     config = function()
       require("neotest").setup({
         adapters = {
-          require("neotest-jest")({
-            jestCommand = "npm test --",
-            jestConfigFile = "custom.jest.config.ts",
-            env = { CI = true },
-            cwd = function(path)
-              return vim.fn.getcwd()
-            end,
-          }),
+          require("neotest-vitest"),
         },
       })
     end,
@@ -208,6 +185,11 @@ return {
     },
   },
   { "eandrju/cellular-automaton.nvim" },
+    "nvim-mini/mini.pairs",
+    event = "VeryLazy",
+    opts = {
+      modes = { insert = true, command = false, terminal = false },
+  },
   {
     "tamton-aquib/duck.nvim",
     keys = {

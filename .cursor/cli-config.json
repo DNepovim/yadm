@@ -5,7 +5,9 @@
       "Shell(npx tsc)",
       "Shell(pnpm typecheck)",
       "Shell(pnpm lint:check)",
-      "Shell(pnpm -s)"
+      "Shell(pnpm -s)",
+      "Shell(pnpm test)",
+      "Shell(pnpm run)"
     ],
     "deny": []
   },
@@ -24,7 +26,7 @@
   "privacyCache": {
     "ghostMode": false,
     "privacyMode": 4,
-    "updatedAt": 1762167871974
+    "updatedAt": 1762950338936
   },
   "network": {
     "useHttp1ForAgent": false
