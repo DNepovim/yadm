@@ -16,7 +16,7 @@ return {
 
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
-      ["<M-l"] = {
+      ["<M-l>"] = {
         function(cmp)
           if cmp.snippet_active() then
             return cmp.accept()

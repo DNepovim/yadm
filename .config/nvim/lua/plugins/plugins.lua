@@ -12,21 +12,6 @@ return {
     },
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    lazy = true,
-    init = function() end,
-    opts = {
-      open_on_startup = false,
-      close_if_last_window = true,
-      filesystem = {
-        filtered_items = {
-          hide_gitignored = false,
-          hide_dotfiles = false,
-        },
-      },
-    },
-  },
-  {
     "nvim-neotest/neotest",
     dependencies = {
       "marilari88/neotest-vitest",
@@ -62,12 +47,6 @@ return {
     config = true,
   },
   { "virchau13/tree-sitter-astro" },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    keys = {
-      { "<leader><leader>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
-    },
-  },
   {
     "Goose97/timber.nvim",
     version = "*",
@@ -142,35 +121,6 @@ return {
     },
   },
   {
-    "leath-dub/snipe.nvim",
-    keys = {
-      {
-        "gb",
-        function()
-          require("snipe").open_buffer_menu()
-        end,
-        desc = "Open Snipe buffer menu",
-      },
-    },
-    opts = {},
-  },
-  {
-    "harrisoncramer/gitlab.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "stevearc/dressing.nvim", -- Recommended but not required. Better UI for pickers.
-      "nvim-tree/nvim-web-devicons", -- Recommended but not required. Icons in discussion tree.
-    },
-    build = function()
-      require("gitlab.server").build(true)
-    end, -- Builds the Go binary
-    config = function()
-      require("gitlab").setup()
-    end,
-  },
-  {
     "danielfalk/smart-open.nvim",
     branch = "0.2.x",
     config = function()
@@ -184,36 +134,23 @@ return {
       { "nvim-telescope/telescope-fzy-native.nvim" },
     },
   },
-  { "eandrju/cellular-automaton.nvim" },
+  {
     "nvim-mini/mini.pairs",
     event = "VeryLazy",
     opts = {
       modes = { insert = true, command = false, terminal = false },
-  },
-  {
-    "tamton-aquib/duck.nvim",
-    keys = {
-      {
-        "<leader>dd",
-        function()
-          require("duck").hatch()
-        end,
-        desc = "Hatch duck",
-      },
-      {
-        "<leader>dk",
-        function()
-          require("duck").cook()
-        end,
-        desc = "Cook duck",
-      },
-      {
-        "<leader>da",
-        function()
-          require("duck").cook_all()
-        end,
-        desc = "Cook all duck",
-      },
+      -- skip autopair when next character is one of these
+      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+      -- skip autopair when the cursor is inside these treesitter nodes
+      skip_ts = { "string" },
+      -- skip autopair when next character is closing pair
+      -- and there are more closing pairs than opening pairs
+      skip_unbalanced = true,
+      -- better deal with markdown code blocks
+      markdown = true,
     },
+    config = function(_, opts)
+      LazyVim.mini.pairs(opts)
+    end,
   },
 }
