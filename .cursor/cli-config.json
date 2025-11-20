@@ -7,7 +7,11 @@
       "Shell(pnpm lint:check)",
       "Shell(pnpm -s)",
       "Shell(pnpm test)",
-      "Shell(pnpm run)"
+      "Shell(pnpm run)",
+      "Shell(pnpm check)",
+      "Shell(pnpm format:write)",
+      "Shell(pnpm knip:check)",
+      "Shell(pnpm lint)"
     ],
     "deny": []
   },
@@ -26,7 +30,7 @@
   "privacyCache": {
     "ghostMode": false,
     "privacyMode": 4,
-    "updatedAt": 1762950338936
+    "updatedAt": 1763553625756
   },
   "network": {
     "useHttp1ForAgent": false
