@@ -2,6 +2,11 @@ local wezterm = require 'wezterm'
 local config = {}
 local config = wezterm.config_builder()
 
+-- config.animation_fps = 1
+-- config.max_fps = 120
+-- config.term = "xterm-256color"
+
+-- =========
 config.default_prog = {"/opt/homebrew/bin/fish", "--login"}
 config.harfbuzz_features = { 'calt=0' }
 config.default_cwd = '/Users/dominik/projects'

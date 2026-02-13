@@ -112,12 +112,16 @@ abbr --add pgls pnpm list --global
 abbr --add pgrm pnpm remove --global
 abbr --add pgu pnpm update --global
 abbr --add pd pnpm run dev
+abbr --add pdh pnpm run dev --host
 abbr --add pb pnpm run build
 abbr --add pr pnpm run 
 abbr --add ps pnpm start
 abbr --add pt pnpm test
 abbr --add pc pnpm check
 abbr --add pfw pnpm run format:write
+abbr --add pff pnpm run format:fix
+abbr --add pf pnpm run format
+abbr --add pfc pnpm run check
 abbr --add ptc pnpm test --coverage
 abbr --add pln pnpm run lint
 abbr --add plnc pnpm run lint:check
@@ -138,9 +142,8 @@ abbr --add mkd mkdir
 
 abbr --add pr cd ~/projects
 abbr --add c cd ~/.config
-abbr --add v cd ~/projects/phasis-kai-frontend
-abbr --add pfe cd ~/projects/fe-monorepo
-abbr --add pfl cd ~/projects/full-stack-template-v1
+abbr --add vm cd ~/projects/phasis-kai-frontend & wezterm cli rename-workspace vogt-manager
+abbr --add vt cd ~/projects/phasis-kai-tablet & wezterm cli rename-workspace vogt-tablet
 abbr --add h cd ~
 
 abbr --add rc cd ~/.config
@@ -151,7 +154,10 @@ abbr --add .... cd ../../..
 abbr --add wzrc vim ~/.wezterm.lua
 abbr --add wz wezterm
 abbr --add wzc wezterm cli
+abbr --add rw wezterm cli rename-workspace
 abbr --add nts nvim ~/projects/my-notes
+
+abbr --add ghrc vim ~/.config/ghostty/config
 
 function rmrf
     # Check if an argument is provided
@@ -187,6 +193,8 @@ end
 
 abbr --add ca cursor-agent
 abbr --add car cursor-agent resume
+abbr --add cc cluade-code
+abbr --add gm gemini
 
 thefuck --alias | source
 

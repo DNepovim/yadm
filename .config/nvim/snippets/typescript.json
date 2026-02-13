@@ -1,0 +1,7 @@
+{
+  "customHook": {
+    "prefix": "ch",
+    "body": "export const ${TM_FILENAME_BASE} = (${1}) => {\n${2}\n}",
+    "description": "React custom hook"
+  }
+}

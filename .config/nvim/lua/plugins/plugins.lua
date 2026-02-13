@@ -153,4 +153,42 @@ return {
       LazyVim.mini.pairs(opts)
     end,
   },
+  {
+    "yelog/i18n.nvim",
+    dependencies = {
+      "ibhagwan/fzf-lua",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("i18n").setup({
+        locales = { "en", "de" },
+        sources = {
+          { pattern = "src/locales/{locales}/{module}.ts" },
+        },
+      })
+    end,
+    keys = {
+      {
+        "<D-S-n>",
+        function()
+          I18n.i18n_keys()
+        end,
+        desc = "Show i18n keys",
+      },
+      {
+        "<D-S-B>",
+        function()
+          I18n.next_locale()
+        end,
+        desc = "Switch to next locale",
+      },
+      {
+        "<D-S-J>",
+        function()
+          I18n.toggle_origin()
+        end,
+        desc = "Toggle origin overlay",
+      },
+    },
+  },
 }

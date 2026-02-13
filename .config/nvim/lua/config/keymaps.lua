@@ -58,3 +58,5 @@ vim.keymap.set("n", "gscn", 'gsr"{cn(%s)}', { desc = "Grep (cwd)" })
 vim.keymap.set("n", "<leader>ar", function()
   vim.cmd("normal! gsaa({return }")
 end, { desc = "Transform arrow function to include return" })
+
+vim.keymap.del("n", "<Tab>")

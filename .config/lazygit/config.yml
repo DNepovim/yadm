@@ -1,7 +1,8 @@
 notARepository: 'skip'
 git:
   paging:
-    externalDiffCommand: difft --color=always
+    colorArg: always
+    pager: delta --paging=never
 gui:
   switchTabsWithPanelJumpKeys: true
 customCommands:
