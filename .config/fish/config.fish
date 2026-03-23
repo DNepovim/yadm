@@ -56,7 +56,7 @@ abbr --add grl git reflog
 
 ## FISH
 abbr --add f fish
-abbr --add frc vim ~/.config/fish/config.fish
+abbr --add frc nvim ~/.config/fish/config.fish
 
 ## FISHER
 abbr --add fr fisher
@@ -142,8 +142,8 @@ abbr --add mkd mkdir
 
 abbr --add pr cd ~/projects
 abbr --add c cd ~/.config
-abbr --add vm cd ~/projects/phasis-kai-frontend & wezterm cli rename-workspace vogt-manager
-abbr --add vt cd ~/projects/phasis-kai-tablet & wezterm cli rename-workspace vogt-tablet
+abbr --add vm cd ~/projects/phasis-kai-frontend
+abbr --add vt cd ~/projects/phasis-kai-tablet
 abbr --add h cd ~
 
 abbr --add rc cd ~/.config
@@ -157,7 +157,8 @@ abbr --add wzc wezterm cli
 abbr --add rw wezterm cli rename-workspace
 abbr --add nts nvim ~/projects/my-notes
 
-abbr --add ghrc vim ~/.config/ghostty/config
+abbr --add ghrc nvim ~/.config/ghostty/config
+abbr --add trc nvim ~/.tmux.conf
 
 function rmrf
     # Check if an argument is provided
@@ -193,7 +194,7 @@ end
 
 abbr --add ca cursor-agent
 abbr --add car cursor-agent resume
-abbr --add cc cluade-code
+abbr --add cc claude
 abbr --add gm gemini
 
 thefuck --alias | source
