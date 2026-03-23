@@ -1,0 +1,53 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(ls)",
+      "Shell(cd)",
+      "Shell(pnpm lint:check)",
+      "Shell(pnpm format:write)",
+      "Shell(tsc)",
+      "Shell(npx eslint)",
+      "Shell(pnpm tsc)"
+    ],
+    "deny": []
+  },
+  "version": 1,
+  "editor": {
+    "vimMode": true
+  },
+  "model": {
+    "modelId": "default",
+    "displayModelId": "auto",
+    "displayName": "Auto",
+    "displayNameShort": "Auto",
+    "aliases": [
+      "auto"
+    ],
+    "maxMode": false
+  },
+  "hasChangedDefaultModel": true,
+  "maxMode": false,
+  "privacyCache": {
+    "ghostMode": false,
+    "privacyMode": 4,
+    "updatedAt": 1773049672071
+  },
+  "authInfo": {
+    "email": "dominik.blaha@applifting.cz",
+    "displayName": "Dominik Bláha",
+    "userId": 264575580,
+    "authId": "google-oauth2|user_01K183HA1PM2PWNE5TDSA0GG03"
+  },
+  "network": {
+    "useHttp1ForAgent": false
+  },
+  "approvalMode": "allowlist",
+  "sandbox": {
+    "mode": "disabled",
+    "networkAccess": "user_config_with_defaults"
+  },
+  "attribution": {
+    "attributeCommitsToAgent": true,
+    "attributePRsToAgent": true
+  }
+}

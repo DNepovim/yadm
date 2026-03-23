@@ -1,0 +1,17 @@
+shell-integration = fish
+theme = Dark+
+gtk-titlebar-hide-when-maximized = true
+
+# Unbind these so they pass through to tmux
+keybind = ctrl+h=unbind
+keybind = ctrl+j=unbind
+keybind = ctrl+k=unbind
+keybind = ctrl+l=unbind
+
+keybind = ctrl+shift+h=unbind
+keybind = ctrl+shift+l=unbind
+keybind = ctrl+shift+j=unbind
+keybind = ctrl+shift+k=unbind
+
+keybind = super+t=unbind
+
